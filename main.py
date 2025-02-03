@@ -1,6 +1,6 @@
 import pygame
 import constants as CONST
-from circleshape import CircleShape
+from player import Player
 
 
 def main():
@@ -14,13 +14,14 @@ def main():
     screen = pygame.display.set_mode((CONST.SCREEN_WIDTH, CONST.SCREEN_HEIGHT))
     clock = pygame.time.Clock()
     dt = 0
-    circle = CircleShape(0, 0, 1)
+    player = Player(CONST.SCREEN_WIDTH / 2, CONST.SCREEN_HEIGHT / 2)
 
     while True:
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
                 return
-        screen.fill(0)
+        screen.fill("black")
+        player.draw(screen)
         pygame.display.flip()
         dt = clock.tick(60) / 1000
 
