@@ -57,7 +57,7 @@ def game():
                 return
             for shot in shots:
                 if rock.collide(shot):
-                    rock.kill()
+                    rock.split()
                     shot.kill()
 
         dt = clock.tick(60) / 1000
