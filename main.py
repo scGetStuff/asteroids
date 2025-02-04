@@ -35,6 +35,7 @@ def game():
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
                 return
+
         screen.fill("black")
 
         updatable.update(dt)
@@ -43,6 +44,15 @@ def game():
             thingy.draw(screen)
 
         pygame.display.flip()
+
+        # I do this after flip, because I want to see them crash
+        # idealy leave it on screen with a crash animation
+        for rock in asteroids:
+            if rock.collide(player):
+                print("Game over!")
+                pygame.quit()
+                return
+
         dt = clock.tick(60) / 1000
 
 
