@@ -55,6 +55,10 @@ def game():
                 print("Game over!")
                 pygame.quit()
                 return
+            for shot in shots:
+                if rock.collide(shot):
+                    rock.kill()
+                    shot.kill()
 
         dt = clock.tick(60) / 1000
 
